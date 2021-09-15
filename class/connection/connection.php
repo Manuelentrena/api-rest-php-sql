@@ -52,12 +52,14 @@ class connection {
   }
 
   public function getData($sqlstr){
+    
     $results = $this->connection->query($sqlstr);
+    print_r($results);
     $resultArray = array();
     foreach ($results as $key) {
       $resultArray[] = $key;
     }
-    print_r($resultArray);
+    
     return $resultArray;
   }
 
