@@ -57,7 +57,7 @@ class connection {
     foreach ($results as $key) {
       $resultArray[] = $key;
     }
-    return $this->$resultArray;
+    return $resultArray;
   }
 
   public function nonQuery($sqlstr){
