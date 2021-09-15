@@ -1,9 +1,9 @@
 {
   "conexion": {
-    "server": "localhost",
-    "user": "root",
-    "password": "",
-    "database": "tasklist",
+    "server": "us-cdbr-east-04.cleardb.com",
+    "user": "b1874837ec4400",
+    "password": "a324e808",
+    "database": "heroku_c3cd5bfb12bc988",
     "port": "3306"
   }
 }

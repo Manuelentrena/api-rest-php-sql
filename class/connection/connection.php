@@ -1,5 +1,15 @@
 <?php
 
+/* {
+  "conexion": {
+    "server": "localhost",
+    "user": "root",
+    "password": "",
+    "database": "tasklist",
+    "port": "3306"
+  }
+} */
+
 class connection {
 
   private $server;
