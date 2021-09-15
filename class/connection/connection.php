@@ -57,7 +57,7 @@ class connection {
     foreach ($results as $key) {
       $resultArray[] = $key;
     }
-    return $this->convertirUTF8($resultArray);
+    return $this->$resultArray;
   }
 
   public function nonQuery($sqlstr){
