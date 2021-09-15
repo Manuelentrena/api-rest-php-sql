@@ -34,6 +34,7 @@
       /* SHOW BY DEFAULT */
       }else{
         $res = $_task->listTask($postBody);
+        print_r($res);
       }
       echo json_encode($res);
       http_response_code(200);
