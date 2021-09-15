@@ -53,11 +53,13 @@ class connection {
 
   public function getData($sqlstr){
     print_r($sqlstr);
+    print_r(" ");
     $results = $this->connection->query($sqlstr);
     $resultArray = array();
     foreach ($results as $key) {
       $resultArray[] = $key;
     }
+    print_r($resultArray);
     return $resultArray;
   }
 
