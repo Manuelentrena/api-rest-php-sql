@@ -52,7 +52,6 @@ class connection {
   }
 
   public function getData($sqlstr){
-    print_r($sqlstr);
     $results = $this->connection->query($sqlstr);
     $resultArray = array();
     foreach ($results as $key) {
