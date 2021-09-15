@@ -40,6 +40,8 @@
       }
       http_response_code(200);
       echo json_encode($res);
+      print_r("CUANTO VALE EN JSON");
+      print_r(json_encode($res));
       break;
 
     case "POST": 
