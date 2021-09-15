@@ -57,6 +57,7 @@ class connection {
     foreach ($results as $key) {
       $resultArray[] = $key;
     }
+    print_r($resultArray);
     return $resultArray;
   }
 
