@@ -94,14 +94,14 @@
       $_response = new response;
       $data = json_decode($json, true);
       
-      /* name required */
-      if(!isset($data["name"])){
+      /* fields required */
+      if(!isset($data["name"]) || !isset($data["idstate"]) || !isset($data["iduser"])){
         return $_response->error_400();
       }
 
       $this->name = $data["name"];
-      if(isset($data["idstate"])) { $this->idstate = $data["idstate"]; }
-      if(isset($data["iduser"])) { $this->iduser = $data["iduser"]; }
+      $this->name = $data["idstate"];
+      $this->name = $data["iduser"];
       if(isset($data["date"])) { $this->date = $data["date"]; }
       if(isset($data["description"])) { $this->description = $data["description"]; }
 
@@ -143,15 +143,15 @@
       $_response = new response;
       $data = json_decode($json, true);
 
-      /* id required */
-      if(!isset($data["id"])){
+      /* fields required */
+      if(!isset($data["id"]) || !isset($data["name"]) || !isset($data["idstate"]) || !isset($data["iduser"])){
         return $_response->error_400();
       }
 
       $this->id = $data["id"];
-      if(isset($data["name"])) { $this->name = $data["name"]; }
-      if(isset($data["idstate"])) { $this->idstate = $data["idstate"]; }
-      if(isset($data["iduser"])) { $this->iduser = $data["iduser"]; }
+      $this->id = $data["name"];
+      $this->id = $data["idstate"];
+      $this->id = $data["iduser"];
       if(isset($data["date"])) { $this->date = $data["date"]; }
       if(isset($data["description"])) { $this->description = $data["description"]; }
 
