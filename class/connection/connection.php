@@ -60,7 +60,7 @@ class connection {
       $resultArray[] = $key;
     }
     print_r($resultArray);
-    return $this->convertirUTF8($resultArray);;
+    return $resultArray;
   }
 
   public function nonQuery($sqlstr){
