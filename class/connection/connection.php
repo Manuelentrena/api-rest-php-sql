@@ -20,7 +20,7 @@ class connection {
     }
     $this->connection = new mysqli($this->server,$this->user,$this->password,$this->database,$this->port);
     if($this->connection->connect_errno){
-      echo "ERROR AL CONECTAR EN LA BD";
+      echo "ERROR TO CONECT IN BD";
       die();
     }
 
