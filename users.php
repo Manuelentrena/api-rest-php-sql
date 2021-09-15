@@ -34,6 +34,9 @@
       /* LIST USER BY PAGE 1 */
       }else{
         $res = $_user->listUsers($postBody);
+        print_r("CUANTO VALE EN EL RES");
+        print_r($res);
+
       }
       http_response_code(200);
       echo json_encode($res);
