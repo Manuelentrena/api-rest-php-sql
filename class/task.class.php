@@ -15,8 +15,8 @@
 
     /* METHODS GET */
 
-    public function listTask($json, $page = 1){
-      $tokenValidate = $this->verifyToken($json);
+    public function listTask($headers, $page = 1){
+      $tokenValidate = $this->verifyToken($headers);
 
       if($tokenValidate){
         return $tokenValidate;
@@ -34,8 +34,8 @@
       return $data;
     }
 
-    public function oneTask($json, $id){
-      $tokenValidate = $this->verifyToken($json);
+    public function oneTask($headers, $id){
+      $tokenValidate = $this->verifyToken($headers);
 
       if($tokenValidate){
         return $tokenValidate;
@@ -46,8 +46,8 @@
       return $data;
     }
 
-    public function taskByName($json,$name){
-      $tokenValidate = $this->verifyToken($json);
+    public function taskByName($headers,$name){
+      $tokenValidate = $this->verifyToken($headers);
 
       if($tokenValidate){
         return $tokenValidate;
@@ -58,8 +58,8 @@
       return $data;
     }
 
-    public function taskByUser($json,$user){
-      $tokenValidate = $this->verifyToken($json);
+    public function taskByUser($headers,$user){
+      $tokenValidate = $this->verifyToken($headers);
 
       if($tokenValidate){
         return $tokenValidate;
@@ -70,8 +70,8 @@
       return $data;
     }
 
-    public function taskByState($json,$state){
-      $tokenValidate = $this->verifyToken($json);
+    public function taskByState($headers,$state){
+      $tokenValidate = $this->verifyToken($headers);
 
       if($tokenValidate){
         return $tokenValidate;
@@ -84,8 +84,8 @@
 
     /* METHODS POST */
 
-    public function postTask($json){
-      $tokenValidate = $this->verifyToken($json);
+    public function postTask($json,$headers){
+      $tokenValidate = $this->verifyToken($headers);
       
       if($tokenValidate){
         return $tokenValidate;
@@ -133,8 +133,8 @@
 
     /* METHODS PUT */
 
-    public function putTask($json){
-      $tokenValidate = $this->verifyToken($json);
+    public function putTask($json,$headers){
+      $tokenValidate = $this->verifyToken($headers);
       
       if($tokenValidate){
         return $tokenValidate;
@@ -184,8 +184,8 @@
 
     /* METHODS DELETE */
 
-    public function deleteTask($json){
-      $tokenValidate = $this->verifyToken($json);
+    public function deleteTask($headers){
+      $tokenValidate = $this->verifyToken($headers);
       
       if($tokenValidate){
         return $tokenValidate;
@@ -240,16 +240,15 @@
       }
     }
 
-    private function verifyToken($json){
+    private function verifyToken($headers){
+      
       $_response = new response;
-      $data = json_decode($json, true);
 
-      /* Verify TokenBody */
-      if(!isset($data["token"])){
+      if(!isset($headers["Token"])){
         return $_response->error_401();
       }
 
-      $this->token = $data["token"];
+      $this->token = $headers["Token"];
       $infoToken = $this->getToken();
 
       /* Verify TokenDB */
