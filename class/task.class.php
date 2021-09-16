@@ -244,6 +244,7 @@
       
       $_response = new response;
       print_r($headers);
+      print_r("hola");
       if(!isset($headers["Token"])){
         return $_response->error_401();
       }
