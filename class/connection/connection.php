@@ -52,8 +52,8 @@ class connection {
   }
 
   public function getData($sqlstr){
-    print_r($sqlstr);
-    $results = $this->connection->query($sqlstr);
+    
+    $results = $this->connection->query(utf8_encode($sqlstr));
     
     $resultArray = array();
     foreach ($results as $key) {
@@ -64,12 +64,12 @@ class connection {
   }
 
   public function nonQuery($sqlstr){
-    $results = $this->connection->query($sqlstr);
+    $results = $this->connection->query(utf8_encode($sqlstr));
     return $this->connection->affected_rows;
   }
 
   public function nonQueryId($sqlstr){
-    $results = $this->connection->query($sqlstr);
+    $results = $this->connection->query(utf8_encode($sqlstr));
     $filas = $this->connection->affected_rows;
     if($filas >= 1){
       return $this->connection->insert_id;
