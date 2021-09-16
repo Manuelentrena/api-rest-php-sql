@@ -53,7 +53,7 @@ class connection {
 
   public function getData($sqlstr){
     
-    $results = $this->connection->query(utf8_encode($sqlstr));
+    $results = $this->connection->query(utf8_decode($sqlstr));
     
     $resultArray = array();
     foreach ($results as $key) {
@@ -64,12 +64,12 @@ class connection {
   }
 
   public function nonQuery($sqlstr){
-    $results = $this->connection->query(utf8_encode($sqlstr));
+    $results = $this->connection->query(utf8_decode($sqlstr));
     return $this->connection->affected_rows;
   }
 
   public function nonQueryId($sqlstr){
-    $results = $this->connection->query(utf8_encode($sqlstr));
+    $results = $this->connection->query(utf8_decode($sqlstr));
     $filas = $this->connection->affected_rows;
     if($filas >= 1){
       return $this->connection->insert_id;
