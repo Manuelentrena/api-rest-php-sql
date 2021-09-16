@@ -36,8 +36,8 @@
         $res = $_task->listTask($postBody);
         print_r($res);
       }
-      echo utf8_encode(json_encode($res));
-      
+      print_r("AQUI");
+      echo utf8_decode(json_encode($res));
       http_response_code(200);
       break;
 
