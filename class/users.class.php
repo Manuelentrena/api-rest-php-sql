@@ -260,7 +260,9 @@
         return $_response->error_401();
       } */
       foreach ($headers as $header => $value) {
-        print_r("$header: $value <br />\n");
+        if($header == 'token'){
+          print_r($value);
+        }
       }
       if(!isset($headers['token'])){
         return $_response->error_401();
