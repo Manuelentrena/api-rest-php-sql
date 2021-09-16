@@ -250,7 +250,7 @@
     }
 
     private function verifyToken($headers){
-      print_r($headers);
+      
       $_response = new response;
       /* $data = json_decode($json, true); */
 
@@ -259,6 +259,7 @@
       /* if(!isset($data["token"])){
         return $_response->error_401();
       } */
+      print_r($headers["token"]);
       if(!$headers["token"]){
         return $_response->error_401();
       }
