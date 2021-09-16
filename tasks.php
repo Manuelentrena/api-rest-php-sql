@@ -6,6 +6,10 @@
   $_response = new response;
   $_task = new task;
   $resquest = $_SERVER['REQUEST_METHOD'];
+  header('content-Type: application/json');
+  header('Access-Control-Allow-Origin: *');
+  header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+  header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
 
   switch ($resquest) {
     case "GET": /* SHOW TASKS AND TASK */
