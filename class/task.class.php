@@ -100,9 +100,9 @@
       }
 
       $this->name = $data["name"];
-      $this->name = $data["idstate"];
-      $this->name = $data["iduser"];
-      if(isset($data["date"])) { $this->date = $data["date"]; }
+      $this->idstate = $data["idstate"];
+      $this->iduser = $data["iduser"];
+      $this->date = date("Y-m-d H:i");
       if(isset($data["description"])) { $this->description = $data["description"]; }
 
       /* return $data; */
@@ -149,10 +149,10 @@
       }
 
       $this->id = $data["id"];
-      $this->id = $data["name"];
-      $this->id = $data["idstate"];
-      $this->id = $data["iduser"];
-      if(isset($data["date"])) { $this->date = $data["date"]; }
+      $this->name = $data["name"];
+      $this->idstate = $data["idstate"];
+      $this->iduser = $data["iduser"];
+      $this->date = date("Y-m-d H:i");
       if(isset($data["description"])) { $this->description = $data["description"]; }
 
       /* return $data; */
@@ -172,7 +172,7 @@
     }
 
     private function modifyTask(){
-      $query = "UPDATE " . $this->table . " SET name = '" . $this->name . "' , idstate = " . ($this->idstate ?? 'null') . " ,iduser = " . ($this->iduser ?? 'null') . " ,date = '" . $this->date . "' ,description = '" . $this->description . "' WHERE id = '" . $this->id ."'";
+      $query = "UPDATE " . $this->table . " SET name = '" . $this->name . "' , idstate = " . $this->idstate . " ,iduser = " . $this->iduser . " ,date = '" . $this->date . "' ,description = '" . $this->description . "' WHERE id = '" . $this->id ."'";
 
       $res = parent::nonQuery($query);
       if($res >= 1){
