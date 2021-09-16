@@ -262,11 +262,11 @@
       foreach ($headers as $header => $value) {
         print_r("$header: $value <br />\n");
       }
-      if(!isset($headers["token"])){
+      if(!isset($headers['token'])){
         return $_response->error_401();
       }
 
-      $this->token = $headers["token"];
+      $this->token = $headers['token'];
       $infoToken = $this->getToken();
 
       /* Verify TokenDB */
