@@ -53,23 +53,23 @@ class connection {
 
   public function getData($sqlstr){
     
-    $results = $this->connection->query(utf8_decode($sqlstr));
+    $results = $this->connection->query($sqlstr);
     print_r($results);
     $resultArray = array();
     foreach ($results as $key) {
       $resultArray[] = $key;
     }
     print_r($resultArray);
-    return $resultArray;
+    return $this->convertirUTF8($resultArray);
   }
 
   public function nonQuery($sqlstr){
-    $results = $this->connection->query(utf8_decode($sqlstr));
+    $results = $this->connection->query($sqlstr);
     return $this->connection->affected_rows;
   }
 
   public function nonQueryId($sqlstr){
-    $results = $this->connection->query(utf8_decode($sqlstr));
+    $results = $this->connection->query($sqlstr);
     $filas = $this->connection->affected_rows;
     if($filas >= 1){
       return $this->connection->insert_id;
