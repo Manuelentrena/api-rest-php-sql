@@ -22,11 +22,11 @@
     }else{
       http_response_code(200);
     }
-    echo json_encode($data);
+    echo json_encode($data, JSON_UNESCAPED_UNICODE);
   }else{
     header('content-Type: application/json');
     $data = $_response->error_405();
-    echo json_encode($data);
+    echo json_encode($data, JSON_UNESCAPED_UNICODE);
   }
 
 ?>

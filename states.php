@@ -23,7 +23,7 @@
         $res = $_state->listStates($postBody);
       }
       http_response_code(200);
-      echo json_encode($res);
+      echo json_encode($res, JSON_UNESCAPED_UNICODE);
       break;
 
     case "POST": 
@@ -34,7 +34,7 @@
       }else{
         http_response_code(200);
       }
-      echo json_encode($res);
+      echo json_encode($res, JSON_UNESCAPED_UNICODE);
       break;
 
     case "PUT": 
@@ -45,7 +45,7 @@
       }else{
         http_response_code(200);
       }
-      echo json_encode($res);
+      echo json_encode($res, JSON_UNESCAPED_UNICODE);
       break;
 
     case "DELETE": 
@@ -56,13 +56,13 @@
       }else{
         http_response_code(200);
       }
-      echo json_encode($res);
+      echo json_encode($res, JSON_UNESCAPED_UNICODE);
       break;
 
     default: /* RESQUEST NOT PERMIT */
       header('content-Type: application/json');
       $data = $_response->error_405();
-      echo json_encode($data);
+      echo json_encode($data, JSON_UNESCAPED_UNICODE);
 }
 
 ?>

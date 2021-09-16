@@ -34,9 +34,7 @@
       /* SHOW BY DEFAULT */
       }else{
         $res = $_task->listTask($postBody);
-        print_r($res);
       }
-      print_r("AQUI");
       echo json_encode($res, JSON_UNESCAPED_UNICODE);
       http_response_code(200);
       break;
@@ -53,7 +51,7 @@
       }else{
         http_response_code(200);
       }
-      echo json_encode($res);
+      echo json_encode($res, JSON_UNESCAPED_UNICODE);
       break;
 
     case "PUT": /* MODIFY TASK */
@@ -67,7 +65,7 @@
       }else{
         http_response_code(200);
       }
-      echo json_encode($res);
+      echo json_encode($res, JSON_UNESCAPED_UNICODE);
       break;
 
     case "DELETE": /* DELETE TASK */
@@ -81,13 +79,13 @@
       }else{
         http_response_code(200);
       }
-      echo json_encode($res);
+      echo json_encode($res, JSON_UNESCAPED_UNICODE);
       break;
 
     default: /* RESQUEST NOT PERMIT */
       header('content-Type: application/json');
       $data = $_response->error_405();
-      echo json_encode($data);
+      echo json_encode($data, JSON_UNESCAPED_UNICODE);
 }
 
 ?>
