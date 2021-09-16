@@ -38,7 +38,7 @@
       }
       http_response_code(200);
       print_r("AL FINAL");
-      print_r(utf8_decode($res));
+      print_r($res);
       echo json_encode($res);
       break;
 
