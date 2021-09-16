@@ -32,6 +32,8 @@
       }
       $query = "SELECT id, name, email, password, direction, available FROM " .$this->table . " limit $initial,$end";
       $data = parent::getData($query);
+      print_r("EN DATA");
+      print_r($data);
       return $data;
     }
 
