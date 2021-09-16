@@ -259,17 +259,17 @@
       /* if(!isset($data["token"])){
         return $_response->error_401();
       } */
-      foreach ($headers as $header => $value) {
+      /* foreach ($headers as $header => $value) {
         
           print_r($header);
           print_r($value);
         
-      }
-      if(!isset($headers['token'])){
+      } */
+      if(!isset($headers["Token"])){
         return $_response->error_401();
       }
 
-      $this->token = $headers['token'];
+      $this->token = $headers["Token"];
       $infoToken = $this->getToken();
 
       /* Verify TokenDB */
