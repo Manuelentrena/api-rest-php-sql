@@ -243,7 +243,7 @@
     private function verifyToken($headers){
       
       $_response = new response;
-      print_r($headers["Token"]);
+      print_r($headers);
       if(!isset($headers["Token"])){
         return $_response->error_401();
       }
