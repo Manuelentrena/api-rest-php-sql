@@ -84,12 +84,6 @@
     }
     /* METHODS POST */
     public function postUser($json){
-      $tokenValidate = $this->verifyToken($json);
-      
-      if($tokenValidate){
-        return $tokenValidate;
-      };
-
       $_response = new response;
       $data = json_decode($json, true);
 
