@@ -43,7 +43,8 @@
 
       $res = $_response->res;
       $res["result"] = array(
-        "token" => $newToken
+        "token" => $newToken,
+        "id" => $dataUser[0]['id']
       );
 
       return $res;
