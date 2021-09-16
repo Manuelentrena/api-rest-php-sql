@@ -7,6 +7,8 @@
   $_user = new user;
   $resquest = $_SERVER['REQUEST_METHOD'];
   $postBody = file_get_contents("php://input");
+  $headers = getallheaders();
+  print_r($headers);
   header('content-Type: application/json');
   header('Access-Control-Allow-Origin: *');
   header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
