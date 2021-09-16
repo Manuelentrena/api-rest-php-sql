@@ -17,8 +17,8 @@
     private $token = "";
 
     /* METHODS GETS */
-    public function listUsers($json, $page = 1){
-      $tokenValidate = $this->verifyToken($json);
+    public function listUsers($headers, $page = 1){
+      $tokenValidate = $this->verifyToken($headers);
 
       if($tokenValidate){
         return $tokenValidate;
@@ -35,8 +35,8 @@
       return $data;
     }
 
-    public function oneUser($json,$id){
-      $tokenValidate = $this->verifyToken($json);
+    public function oneUser($headers,$id){
+      $tokenValidate = $this->verifyToken($headers);
 
       if($tokenValidate){
         return $tokenValidate;
@@ -47,8 +47,8 @@
       return $data;
     }
 
-    public function usersByName($json,$name){
-      $tokenValidate = $this->verifyToken($json);
+    public function usersByName($headers,$name){
+      $tokenValidate = $this->verifyToken($headers);
 
       if($tokenValidate){
         return $tokenValidate;
@@ -59,8 +59,8 @@
       return $data;
     }
 
-    public function usersByLastName($json,$lastName){
-      $tokenValidate = $this->verifyToken($json);
+    public function usersByLastName($headers,$lastName){
+      $tokenValidate = $this->verifyToken($headers);
 
       if($tokenValidate){
         return $tokenValidate;
@@ -71,8 +71,8 @@
       return $data;
     }
 
-    public function usersByEmail($json,$email){
-      $tokenValidate = $this->verifyToken($json);
+    public function usersByEmail($headers,$email){
+      $tokenValidate = $this->verifyToken($headers);
 
       if($tokenValidate){
         return $tokenValidate;
@@ -145,8 +145,8 @@
 
     /* METHODS PUT */
 
-    public function putUser($json){
-      $tokenValidate = $this->verifyToken($json);
+    public function putUser($json,$headers){
+      $tokenValidate = $this->verifyToken($headers);
       
       if($tokenValidate){
         return $tokenValidate;
@@ -194,8 +194,8 @@
 
     /* METHODS DELETE */
 
-    public function deleteUser($json){
-      $tokenValidate = $this->verifyToken($json);
+    public function deleteUser($json,$headers){
+      $tokenValidate = $this->verifyToken($headers);
       
       if($tokenValidate){
         return $tokenValidate;
@@ -249,16 +249,20 @@
       }
     }
 
-    private function verifyToken($json){
+    private function verifyToken($headers){
       $_response = new response;
-      $data = json_decode($json, true);
+      /* $data = json_decode($json, true); */
+
 
       /* Verify TokenBody */
-      if(!isset($data["token"])){
+      /* if(!isset($data["token"])){
+        return $_response->error_401();
+      } */
+      if(!$headers["token"]){
         return $_response->error_401();
       }
 
-      $this->token = $data["token"];
+      $this->token = $headers["token"];
       $infoToken = $this->getToken();
 
       /* Verify TokenDB */
