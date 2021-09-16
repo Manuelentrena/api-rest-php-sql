@@ -30,7 +30,7 @@
         $initial = ($end * ($page - 1)) + 1;
         $end = $end * $page;
       }
-      $query = "SELECT id, name, email, password, direction, available FROM " .$this->table . " limit $initial,$end";
+      $query = "SELECT id, name, email, direction, available FROM " .$this->table . " limit $initial,$end";
       $data = parent::getData($query);
       return $data;
     }
@@ -42,7 +42,7 @@
         return $tokenValidate;
       };
       
-      $query = "SELECT id, name, email, password, direction, available FROM " .$this->table . " WHERE id = $id";
+      $query = "SELECT id, name, email, direction, available FROM " .$this->table . " WHERE id = $id";
       $data = parent::getData($query);
       return $data;
     }
@@ -54,7 +54,7 @@
         return $tokenValidate;
       };
 
-      $query = "SELECT id, name, lastname, email, password, direction, available FROM " .$this->table . " WHERE name LIKE '%$name%'";
+      $query = "SELECT id, name, lastname, email, direction, available FROM " .$this->table . " WHERE name LIKE '%$name%'";
       $data = parent::getData($query);
       return $data;
     }
@@ -66,7 +66,7 @@
         return $tokenValidate;
       };
 
-      $query = "SELECT id, name, lastname, email, password, direction, available FROM " .$this->table . " WHERE lastname LIKE '%$lastName%'";
+      $query = "SELECT id, name, lastname, email, direction, available FROM " .$this->table . " WHERE lastname LIKE '%$lastName%'";
       $data = parent::getData($query);
       return $data;
     }
@@ -78,7 +78,7 @@
         return $tokenValidate;
       };
 
-      $query = "SELECT * FROM " .$this->table . " WHERE email LIKE '%$email%'";
+      $query = "SELECT id, name, lastname, email, direction, available FROM " .$this->table . " WHERE email LIKE '%$email%'";
       $data = parent::getData($query);
       return $data;
     }
