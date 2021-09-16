@@ -37,7 +37,7 @@
 
       }
       http_response_code(200);
-      echo json_encode($res);
+      echo json_encode(utf8_encode($res));
       break;
 
     case "POST": 
