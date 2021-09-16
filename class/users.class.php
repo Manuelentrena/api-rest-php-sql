@@ -252,19 +252,7 @@
     private function verifyToken($headers){
       
       $_response = new response;
-      /* $data = json_decode($json, true); */
 
-
-      /* Verify TokenBody */
-      /* if(!isset($data["token"])){
-        return $_response->error_401();
-      } */
-      /* foreach ($headers as $header => $value) {
-        
-          print_r($header);
-          print_r($value);
-        
-      } */
       if(!isset($headers["Token"])){
         return $_response->error_401();
       }
