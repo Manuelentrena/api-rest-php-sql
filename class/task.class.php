@@ -184,7 +184,7 @@
 
     /* METHODS DELETE */
 
-    public function deleteTask($headers){
+    public function deleteTask($json,$headers){
       $tokenValidate = $this->verifyToken($headers);
       
       if($tokenValidate){
@@ -243,8 +243,7 @@
     private function verifyToken($headers){
       
       $_response = new response;
-      print_r($headers);
-      print_r("hola");
+
       if(!isset($headers["Token"])){
         return $_response->error_401();
       }
