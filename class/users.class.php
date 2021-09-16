@@ -250,6 +250,7 @@
     }
 
     private function verifyToken($headers){
+      print_r($headers);
       $_response = new response;
       /* $data = json_decode($json, true); */
 
