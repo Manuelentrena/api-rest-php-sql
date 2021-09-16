@@ -259,8 +259,9 @@
       /* if(!isset($data["token"])){
         return $_response->error_401();
       } */
-      print_r($headers["token"]);
-      if(!$headers["token"]){
+      $var = $headers["token"];
+      print_r($var);
+      if(!isset($headers["token"])){
         return $_response->error_401();
       }
 
