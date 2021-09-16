@@ -37,7 +37,7 @@
         print_r($res);
       }
       print_r("AQUI");
-      echo utf8_decode(json_encode($res));
+      echo json_encode($res, JSON_UNESCAPED_UNICODE);
       http_response_code(200);
       break;
 
