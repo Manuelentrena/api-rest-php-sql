@@ -14,6 +14,8 @@
   $postBody = file_get_contents("php://input");
   $headers = getallheaders();
 
+  print_r($headers);
+
 
 
   switch ($resquest) {
