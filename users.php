@@ -14,10 +14,6 @@
   $postBody = file_get_contents("php://input");
   $headers = getallheaders();
 
-  echo($headers);
-
-
-
   switch ($resquest) {
     case "GET":
       /* LIST USER BY PAGE */
