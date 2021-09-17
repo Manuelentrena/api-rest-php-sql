@@ -5,7 +5,7 @@
 
   header('content-Type: application/json');
   header('Access-Control-Allow-Origin: *');
-  header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, X-Custom-Header");
+  header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Token");
   header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
 
   $_response = new response;
