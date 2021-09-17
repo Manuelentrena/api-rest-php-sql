@@ -3,16 +3,18 @@
   require_once 'class/response.class.php';
   require_once 'class/users.class.php';
 
+  header('content-Type: application/json');
+  header('Access-Control-Allow-Origin: *');
+  header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+  header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+
   $_response = new response;
   $_user = new user;
   $resquest = $_SERVER['REQUEST_METHOD'];
   $postBody = file_get_contents("php://input");
   $headers = getallheaders();
 
-  header('content-Type: application/json');
-  header('Access-Control-Allow-Origin: *');
-  header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-  header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+
 
   switch ($resquest) {
     case "GET":
