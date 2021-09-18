@@ -80,7 +80,7 @@
 
     default: /* RESQUEST NOT PERMIT */
       header('content-Type: application/json');
-      $data = $_response->error_405();
+      $data = $_response->error_405("Error de Ruta con el servidor");
       echo json_encode($data, JSON_UNESCAPED_UNICODE);
 }
 ?>

@@ -4,10 +4,11 @@
   header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Token");
   header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
 
+  $_response = new response;
   $connection = new connection;
 
-  /* $query = "SELECT * FROM users"; */
-  /* $query = "INSERT INTO users (name, lastname, email, password, direction) value ('Prueba','Apellido','prueba2@gmail.com','123','calle')"; */
+  header('content-Type: application/json');
+  $data = $_response->error_405();
+  echo json_encode($data, JSON_UNESCAPED_UNICODE);
 
-  /* print_r($connection->obtenerDatos($query)); */
 ?>
