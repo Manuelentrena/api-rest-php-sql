@@ -11,5 +11,3 @@
 
   /* print_r($connection->obtenerDatos($query)); */
 ?>
-
-hola index
