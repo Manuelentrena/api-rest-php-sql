@@ -8,7 +8,7 @@
   $connection = new connection;
 
   header('content-Type: application/json');
-  $data = $_response->error_405();
+  $data = $_response->error_200();
   echo json_encode($data, JSON_UNESCAPED_UNICODE);
 
 ?>
