@@ -29,7 +29,7 @@
         $end = $end * $page;
       }
 
-      $query = "SELECT t.id, t.name as name, t.description, concat_ws(' ',u.name,u.lastname) as user, u.id as userid, s.id as stateid, s.name as state, t.date FROM users u, tasks t, states s WHERE u.id = t.iduser AND s.id = t.idstate limit $initial,$end";
+      $query = "SELECT t.id, t.name as name, t.description, concat_ws(' ',u.name,u.lastname) as user, u.id as userid, s.id as stateid, s.name as state, t.date FROM tasks t LEFT JOIN users u on t.iduser = u.id LEFT JOIN states s on t.idstate = s.id limit $initial,$end";
       $data = parent::getData($query);
       return $data;
     }
