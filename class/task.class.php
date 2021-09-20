@@ -53,7 +53,7 @@
         return $tokenValidate;
       };
 
-      $query = "SELECT t.id, t.name as name, t.description, concat(u.name,' ',u.lastname) as user, u.id as userid, s.id as stateid, s.name as state, t.date FROM users u, tasks t, states s WHERE u.id = t.iduser AND s.id = t.idstate AND t.name LIKE '%$name%'";
+      $query = "SELECT t.id, t.name as name, t.description, concat_ws(' ',u.name,u.lastname) as user, u.id as userid, s.id as stateid, s.name as state, t.date FROM tasks t LEFT JOIN users u on t.iduser = u.id LEFT JOIN states s on t.idstate = s.id WHERE t.name LIKE '%$name%'";
       $data = parent::getData($query);
       return $data;
     }
@@ -65,7 +65,7 @@
         return $tokenValidate;
       };
 
-      $query = "SELECT t.id, t.name as name, t.description, concat(u.name,' ',u.lastname) as user, u.id as userid, s.id as stateid, s.name as state, t.date FROM users u, tasks t, states s WHERE u.id = t.iduser AND s.id = t.idstate AND concat(u.name,' ',u.lastname) LIKE '%$user%'";
+      $query = "SELECT t.id, t.name as name, t.description, concat_ws(' ',u.name,u.lastname) as user, u.id as userid, s.id as stateid, s.name as state, t.date FROM tasks t LEFT JOIN users u on t.iduser = u.id LEFT JOIN states s on t.idstate = s.id WHERE concat(u.name,' ',u.lastname) LIKE '%$user%'";
       $data = parent::getData($query);
       return $data;
     }
@@ -77,7 +77,7 @@
         return $tokenValidate;
       };
 
-      $query = "SELECT t.id, t.name as name, t.description, concat(u.name,' ',u.lastname) as user, u.id as userid, s.id as stateid, s.name as state, t.date FROM users u, tasks t, states s WHERE u.id = t.iduser AND s.id = t.idstate AND s.name LIKE '%$state%'";
+      $query = "SELECT t.id, t.name as name, t.description, concat_ws(' ',u.name,u.lastname) as user, u.id as userid, s.id as stateid, s.name as state, t.date FROM tasks t LEFT JOIN users u on t.iduser = u.id LEFT JOIN states s on t.idstate = s.id WHERE s.name LIKE '%$state%'";
       $data = parent::getData($query);
       return $data;
     }
